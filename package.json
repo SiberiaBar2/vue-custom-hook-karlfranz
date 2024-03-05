@@ -1,0 +1,29 @@
+{
+  "name": "vue-custom-hook-karlfranz",
+  "version": "1.0.4",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "build": "npx tsc -p .",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "vue",
+    "hook"
+  ],
+  "author": "karlfranz",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/types": "^7.23.9",
+    "@types/lodash": "^4.14.202",
+    "@types/node": "^20.11.22",
+    "dayjs": "^1.11.10",
+    "lodash": "^4.17.21",
+    "vue": "^3.4.20"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
