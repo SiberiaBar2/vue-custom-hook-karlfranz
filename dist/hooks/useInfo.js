@@ -32,7 +32,7 @@ var useInfo = function (initValus) {
     };
     var clear = function () {
         for (var key in info) {
-            info[key] = "";
+            info[key] = undefined;
         }
     };
     (0, vue_1.onUnmounted)(function () {

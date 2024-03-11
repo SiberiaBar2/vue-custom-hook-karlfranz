@@ -1,5 +1,6 @@
-export declare const useInfo: <T extends Record<string, any>>(initValus?: T) => {
-    readonly info: Record<string, any>;
+import { UnwrapNestedRefs } from "vue";
+export declare const useInfo: <T extends object>(initValus?: T) => {
+    readonly info: UnwrapNestedRefs<T>;
     readonly clear: () => void;
     readonly setSyncInfo: (res: unknown, path?: string) => void;
     readonly setInfoValues: (object: any) => void;
