@@ -9,6 +9,7 @@
     "build": "npx tsc -p .",
     "prepublishOnly": "npm run build"
   },
+  "repository": "https://github.com/SiberiaBar2/vue-custom-hook-karlfranz",
   "keywords": [
     "vue",
     "hook"

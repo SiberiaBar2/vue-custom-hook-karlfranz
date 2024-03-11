@@ -1,16 +1,18 @@
-import { onUnmounted, reactive } from "vue";
+import { UnwrapNestedRefs, onUnmounted, reactive } from "vue";
 import _ from "lodash";
 
 const INFOLAWERS = "data.data";
 
-export const useInfo = <T extends Record<string, any>>(initValus = {} as T) => {
-  const info = reactive(initValus) as Record<string, any>;
+type Key<T> = keyof UnwrapNestedRefs<T>;
+
+export const useInfo = <T extends object>(initValus = {} as T) => {
+  const info = reactive(initValus);
 
   const setSyncInfo = (res: unknown, path = INFOLAWERS) => {
     try {
       const data = _.get(res, path);
       for (const key in data) {
-        info[key] = data[key];
+        info[key as Key<T>] = data[key];
       }
     } catch (error) {
       console.log("setSyncInfo error", error);
@@ -18,16 +20,16 @@ export const useInfo = <T extends Record<string, any>>(initValus = {} as T) => {
   };
   const setInfoValues = (object: any) => {
     for (const key in object) {
-      info[key] = object[key];
+      info[key as Key<T>] = object[key];
     }
   };
   const setInfoValue = (key: string, value: any) => {
-    info[key] = value;
+    info[key as Key<T>] = value;
   };
 
   const clear = () => {
     for (const key in info) {
-      info[key] = "";
+      info[key] = undefined as any;
     }
   };
 
