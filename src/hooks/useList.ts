@@ -5,7 +5,7 @@ const ZERO = 0;
 
 const DATALAYERS = "data.data.records";
 const TOTALLAYERS = "data.data.total";
-const MESSAGE = "返回为空!";
+// const MESSAGE = "返回为空!";
 
 interface SetListParamsType<T> {
   res: unknown;
@@ -14,11 +14,9 @@ interface SetListParamsType<T> {
   totalPath?: string;
 }
 
-// interface SetTotalParamsType {
-//   res: unknown;
-//   path?: string;
-// }
-
+/** 
+ * Get and store array data
+*/
 export const useList = <T extends any>() => {
   const defaultList: T[] = [];
 
@@ -50,21 +48,10 @@ export const useList = <T extends any>() => {
         setTotal(_.get(res, totalPath, ZERO) || ZERO);
       }
     } else {
-      console.log(MESSAGE);
       setData(defaultList);
       setTotal(0);
     }
   };
-  // const setTotalAuxiliary = ({
-  //   res,
-  //   path = TOTALLAYERS,
-  // }: SetTotalParamsType) => {
-  //   if (res) setTotal(_.get(res, path, ZERO) || ZERO);
-  //   else {
-  //     console.error(MESSAGE);
-  //     setTotal(ZERO);
-  //   }
-  // };
 
   return { data, total, setList } as const;
 };

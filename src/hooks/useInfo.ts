@@ -5,6 +5,9 @@ const INFOLAWERS = "data.data";
 
 type Key<T> = keyof UnwrapNestedRefs<T>;
 
+/** 
+ * Get and store object data
+*/
 export const useInfo = <T extends object>(initValus = {} as T) => {
   const info = reactive(initValus);
 

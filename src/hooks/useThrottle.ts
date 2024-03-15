@@ -1,5 +1,9 @@
 import { onUnmounted, ref } from "vue";
 
+/**
+ *
+ * Provide a throttling function
+ */
 export const useThrottle = () => {
   const valid = ref<boolean>(false);
   const timer = ref<NodeJS.Timeout | undefined>(undefined);

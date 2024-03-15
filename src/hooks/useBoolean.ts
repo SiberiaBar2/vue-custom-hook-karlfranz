@@ -1,5 +1,14 @@
 import { ref } from "vue";
 
+/**
+ * Boolean value state maintained by @value useState
+ *
+ * @on function that sets the status to true
+ *
+ * @off function that sets the status to false
+ *
+ * @toggle function to invert the state
+ */
 export const useBoolean = (initValue: boolean = false) => {
   const value = ref(initValue);
 
