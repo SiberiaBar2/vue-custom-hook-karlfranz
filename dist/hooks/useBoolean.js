@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useBoolean = void 0;
 var vue_1 = require("vue");
 /**
- * Boolean value state maintained by @value useState
+ * Boolean value state maintained by @value ref
  *
  * @on function that sets the status to true
  *

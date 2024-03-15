@@ -2,16 +2,7 @@ import dayjs from "dayjs";
 import { useInfo } from "./useInfo";
 import { useInterVal } from "./useInterVal";
 
-/*
- * 补位
- *
- * param n 数值
- *
- * 时间补位方法
- *
- */
-
-const bw = (n: number) => {
+const supplement = (n: number) => {
   return n > 9 ? n : "0" + n;
 };
 
@@ -30,14 +21,13 @@ interface CountDown {
  * @param targetTime  
  * 
  * @returns 
- * {
-      timeStr,
-      expried,
-      days,
-      hours,
-      minutes,
-      seconds,
-    }
+ * 
+    timeStr,
+    expried,
+    days,
+    hours,
+    minutes,
+    seconds,
  */
 export const useCountDown = (targetTime: string | number | Date) => {
   const { info: timeDiff, setInfoValues: setTimeDiff } = useInfo<CountDown>({
@@ -83,9 +73,9 @@ export const useCountDown = (targetTime: string | number | Date) => {
     } else {
       target = targetTime as string;
     }
-    const timeStr = `距离${target}${isMoreText}:${bw(d)}天-${bw(h)}小时-${bw(
-      ms
-    )}分钟-${bw(sc)}秒`;
+    const timeStr = `距离${target}${isMoreText}:${supplement(d)}天-${supplement(
+      h
+    )}小时-${supplement(ms)}分钟-${supplement(sc)}秒`;
 
     setTimeDiff({
       timeStr,

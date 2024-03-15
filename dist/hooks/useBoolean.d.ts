@@ -1,5 +1,5 @@
 /**
- * Boolean value state maintained by @value useState
+ * Boolean value state maintained by @value ref
  *
  * @on function that sets the status to true
  *

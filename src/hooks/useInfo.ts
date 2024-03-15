@@ -7,6 +7,15 @@ type Key<T> = keyof UnwrapNestedRefs<T>;
 
 /** 
  * Get and store object data
+ * 
+ * @clear clear function
+ * 
+ * @setSyncInfo stores the asynchronous data obtained
+ * 
+ * @setInfoValues stores data with multiple key value pairs
+ * 
+ * @setInfoValue stores data for a single key value pair
+ * 
 */
 export const useInfo = <T extends object>(initValus = {} as T) => {
   const info = reactive(initValus);
