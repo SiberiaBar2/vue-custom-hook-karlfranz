@@ -7,6 +7,9 @@ exports.useInfo = void 0;
 var vue_1 = require("vue");
 var lodash_1 = __importDefault(require("lodash"));
 var INFOLAWERS = "data.data";
+/**
+ * Get and store object data
+*/
 var useInfo = function (initValus) {
     if (initValus === void 0) { initValus = {}; }
     var info = (0, vue_1.reactive)(initValus);

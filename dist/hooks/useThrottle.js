@@ -11,6 +11,10 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useThrottle = void 0;
 var vue_1 = require("vue");
+/**
+ *
+ * Provide a throttling function
+ */
 var useThrottle = function () {
     var valid = (0, vue_1.ref)(false);
     var timer = (0, vue_1.ref)(undefined);

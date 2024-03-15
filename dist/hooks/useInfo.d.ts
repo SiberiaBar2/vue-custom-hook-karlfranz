@@ -1,4 +1,7 @@
 import { UnwrapNestedRefs } from "vue";
+/**
+ * Get and store object data
+*/
 export declare const useInfo: <T extends object>(initValus?: T) => {
     readonly info: UnwrapNestedRefs<T>;
     readonly clear: () => void;

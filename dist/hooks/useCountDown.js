@@ -18,6 +18,21 @@ var useInterVal_1 = require("./useInterVal");
 var bw = function (n) {
     return n > 9 ? n : "0" + n;
 };
+/**
+ * Output the hours, minutes and seconds from the target time and the assembled time information
+ *
+ * @param targetTime
+ *
+ * @returns
+ * {
+      timeStr,
+      expried,
+      days,
+      hours,
+      minutes,
+      seconds,
+    }
+ */
 var useCountDown = function (targetTime) {
     var _a = (0, useInfo_1.useInfo)({
         expried: false,

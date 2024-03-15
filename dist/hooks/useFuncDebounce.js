@@ -15,15 +15,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useFuncDebounce = void 0;
 var vue_1 = require("vue");
 var lodash_1 = __importDefault(require("lodash"));
+/**
+ *
+ * Provide an anti-shake function
+ *
+ * @param callback function to be stabilized
+ *
+ * @param delay function delay execution time
+ *
+ * @param change Choose whether to change this pointer
+ *
+ * @returns Function
+ */
 var useFuncDebounce = function () {
     var timerRef = (0, vue_1.ref)(undefined);
-    /**
-     *
-     * @param callback 被防抖的函数
-     * @param delay 函数延迟执行时间
-     * @param change 选择是否改变this指向
-     * @returns Function
-     */
     function debouncedCallback(callback, delay, change) {
         if (delay === void 0) { delay = 500; }
         if (change === void 0) { change = true; }
