@@ -9,6 +9,15 @@ var lodash_1 = __importDefault(require("lodash"));
 var INFOLAWERS = "data.data";
 /**
  * Get and store object data
+ *
+ * @clear clear function
+ *
+ * @setSyncInfo stores the asynchronous data obtained
+ *
+ * @setInfoValues stores data with multiple key value pairs
+ *
+ * @setInfoValue stores data for a single key value pair
+ *
 */
 var useInfo = function (initValus) {
     if (initValus === void 0) { initValus = {}; }

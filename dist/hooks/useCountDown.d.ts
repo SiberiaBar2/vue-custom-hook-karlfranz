@@ -12,14 +12,13 @@ interface CountDown {
  * @param targetTime
  *
  * @returns
- * {
-      timeStr,
-      expried,
-      days,
-      hours,
-      minutes,
-      seconds,
-    }
+ *
+    timeStr,
+    expried,
+    days,
+    hours,
+    minutes,
+    seconds,
  */
 export declare const useCountDown: (targetTime: string | number | Date) => CountDown;
 export {};

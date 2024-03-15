@@ -7,15 +7,7 @@ exports.useCountDown = void 0;
 var dayjs_1 = __importDefault(require("dayjs"));
 var useInfo_1 = require("./useInfo");
 var useInterVal_1 = require("./useInterVal");
-/*
- * 补位
- *
- * param n 数值
- *
- * 时间补位方法
- *
- */
-var bw = function (n) {
+var supplement = function (n) {
     return n > 9 ? n : "0" + n;
 };
 /**
@@ -24,14 +16,13 @@ var bw = function (n) {
  * @param targetTime
  *
  * @returns
- * {
-      timeStr,
-      expried,
-      days,
-      hours,
-      minutes,
-      seconds,
-    }
+ *
+    timeStr,
+    expried,
+    days,
+    hours,
+    minutes,
+    seconds,
  */
 var useCountDown = function (targetTime) {
     var _a = (0, useInfo_1.useInfo)({
@@ -69,7 +60,7 @@ var useCountDown = function (targetTime) {
         else {
             target = targetTime;
         }
-        var timeStr = "\u8DDD\u79BB".concat(target).concat(isMoreText, ":").concat(bw(d), "\u5929-").concat(bw(h), "\u5C0F\u65F6-").concat(bw(ms), "\u5206\u949F-").concat(bw(sc), "\u79D2");
+        var timeStr = "\u8DDD\u79BB".concat(target).concat(isMoreText, ":").concat(supplement(d), "\u5929-").concat(supplement(h), "\u5C0F\u65F6-").concat(supplement(ms), "\u5206\u949F-").concat(supplement(sc), "\u79D2");
         setTimeDiff({
             timeStr: timeStr,
             expried: expried,
