@@ -3,10 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useInterVal = void 0;
 var vue_1 = require("vue");
 /**
- * Combined use of react hook and timer,
+ * Combined use of composition api and timer,
  *
  * This is a hook that can control speed and pause
  *
+ * param delaty can be a variable
  */
 var useInterVal = function (callback, delaty) {
     var savedCallback = (0, vue_1.ref)(callback);
