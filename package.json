@@ -1,5 +1,5 @@
 {
-  "name": "vue-custom-hook-karlfranz",
+  "name": "@karlfranz/vuehooks",
   "version": "1.0.11",
   "description": "",
   "main": "dist/index.js",
