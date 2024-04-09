@@ -60,7 +60,7 @@ const ENDCONFIG = {
  * responsePath?: string returns data path;
  *
  */
-export const useRequest = <T = any>(
+export const useQuery = <T = any>(
   syncFunc: (config?: any) => Promise<unknown>,
   options: OptionsConfig = {},
   end: EndConfig = ENDCONFIG
@@ -80,7 +80,7 @@ export const useRequest = <T = any>(
   } = options;
   const throttleCallback = useThrottle();
   const debouncedCallback = useFuncDebounce();
-  const [loading, { on: loadingOn, off: loadingOff }] = useBoolean();
+  const { value: loading, on: loadingOn, off: loadingOff } = useBoolean();
 
   const data = ref<T>({} as T);
   const retryNumRef = ref<number>(0);

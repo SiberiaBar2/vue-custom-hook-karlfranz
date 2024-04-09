@@ -22,5 +22,5 @@ export const useBoolean = (initValue: boolean = false) => {
     value.value = !value.value;
   };
 
-  return [value, { toggle, on, off }] as const;
+  return { value, toggle, on, off } as const;
 };
