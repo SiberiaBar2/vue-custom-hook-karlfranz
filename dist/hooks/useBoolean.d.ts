@@ -7,8 +7,9 @@
  *
  * @toggle function to invert the state
  */
-export declare const useBoolean: (initValue?: boolean) => readonly [import("vue").Ref<boolean>, {
+export declare const useBoolean: (initValue?: boolean) => {
+    readonly value: import("vue").Ref<boolean>;
     readonly toggle: () => void;
     readonly on: () => void;
     readonly off: () => void;
-}];
+};
