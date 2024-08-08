@@ -153,10 +153,10 @@ export const useQuery = <T = any>(
 
           syncFunc(params)
             .then((res) => {
-              console.log('resresres', res, _.get(res, CODEPATH) == RESPONSRCODE);
-              if (_.get(res, CODEPATH) == RESPONSRCODE) {
-                console.log("111");
-
+              if (
+                _.get(res, CODEPATH) == RESPONSRCODE ||
+                _.get(res, "code") == RESPONSRCODE
+              ) {
                 saveData(res);
                 options?.success?.(res);
                 cacheKey && localStorage.setItem(cacheKey, JSON.stringify(res));
