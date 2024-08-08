@@ -16,7 +16,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./useBoolean"), exports);
 __exportStar(require("./useInterVal"), exports);
-__exportStar(require("./useRequest"), exports);
+__exportStar(require("./useQuery"), exports);
 __exportStar(require("./useThrottle"), exports);
 __exportStar(require("./useFuncDebounce"), exports);
 __exportStar(require("./useCountDown"), exports);

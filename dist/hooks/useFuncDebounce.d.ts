@@ -10,4 +10,4 @@
  *
  * @returns Function
  */
-export declare const useFuncDebounce: () => <T extends Function, K extends unknown, U extends unknown[]>(callback: T, delay?: number, change?: boolean) => (object?: K | undefined, ...args: U) => void;
+export declare const useFuncDebounce: () => <T extends Function, K extends unknown, U extends unknown[]>(callback: T, delay?: number, change?: boolean) => (object?: K, ...args: U) => void;
