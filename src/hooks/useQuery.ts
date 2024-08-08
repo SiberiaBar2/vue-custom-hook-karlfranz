@@ -16,9 +16,6 @@ interface OptionsConfig {
   retryNum?: number;
   manual?: boolean;
   responsePath?: string;
-}
-
-interface EndConfig {
   success?: (res: any) => void;
   error?: (error: Error) => void;
 }
@@ -26,11 +23,6 @@ interface EndConfig {
 const RESPONSRCODE = 200;
 const CODEPATH = "data.code";
 const FAILEDMESSAGE = "获取数据失败";
-
-const ENDCONFIG = {
-  success: (res: unknown) => {},
-  error: (error: Error) => {},
-};
 
 /**
  * Data request hook, similar to ahooks useRequest
@@ -62,8 +54,7 @@ const ENDCONFIG = {
  */
 export const useQuery = <T = any>(
   syncFunc: (config?: any) => Promise<unknown>,
-  options: OptionsConfig = {},
-  end: EndConfig = ENDCONFIG
+  options: OptionsConfig = {}
 ) => {
   const {
     loop = 0,
@@ -77,6 +68,8 @@ export const useQuery = <T = any>(
     loadingDelay = 0,
     responsePath = "",
     refreshOnWindowFocus = false,
+    error = (error: Error) => {},
+    success = (res: unknown) => {},
   } = options;
   const throttleCallback = useThrottle();
   const debouncedCallback = useFuncDebounce();
@@ -149,7 +142,7 @@ export const useQuery = <T = any>(
             data.value = locationCacheData;
 
             saveData(locationCacheData);
-            end.success && end.success(locationCacheData);
+            success?.(locationCacheData);
             loadingOff();
           }
         } else {
@@ -160,9 +153,9 @@ export const useQuery = <T = any>(
 
           syncFunc(params)
             .then((res) => {
-              if (_.get(res, CODEPATH) === RESPONSRCODE) {
+              if (_.get(res, CODEPATH) == RESPONSRCODE) {
                 saveData(res);
-                end.success && end.success(res);
+                success?.(res);
                 cacheKey && localStorage.setItem(cacheKey, JSON.stringify(res));
                 loadingOff();
               } else {
@@ -175,7 +168,7 @@ export const useQuery = <T = any>(
             })
             .catch((error) => {
               loadingOff();
-              end.error && end.error(error);
+              error?.(error);
               console.log("useRequest error catch!", error);
 
               retry(config);
