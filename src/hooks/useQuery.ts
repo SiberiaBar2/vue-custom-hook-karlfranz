@@ -142,7 +142,7 @@ export const useQuery = <T = any>(
             data.value = locationCacheData;
 
             saveData(locationCacheData);
-            success?.(locationCacheData);
+            options.success?.(locationCacheData);
             loadingOff();
           }
         } else {
@@ -153,9 +153,12 @@ export const useQuery = <T = any>(
 
           syncFunc(params)
             .then((res) => {
+              console.log('resresres', res, _.get(res, CODEPATH) == RESPONSRCODE);
               if (_.get(res, CODEPATH) == RESPONSRCODE) {
+                console.log("111");
+
                 saveData(res);
-                success?.(res);
+                options?.success?.(res);
                 cacheKey && localStorage.setItem(cacheKey, JSON.stringify(res));
                 loadingOff();
               } else {
@@ -168,7 +171,7 @@ export const useQuery = <T = any>(
             })
             .catch((error) => {
               loadingOff();
-              error?.(error);
+              options?.error?.(error);
               console.log("useRequest error catch!", error);
 
               retry(config);
